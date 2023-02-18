@@ -17,11 +17,11 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
- 
 }
 
 html {
-  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 img {
@@ -68,47 +68,30 @@ button {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
 
-.form__group {
-  display: flex;
-  flex-direction: column
-}
+  &__group {
+    display: flex;
+    flex-direction: column
+  }
 
-.form__input {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: 2px solid ${colors.navyBlue};
-}
+  &__input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid ${colors.navyBlue};
+  }
 
-.form__link {
-  font-weight: 800;
-}
+  &__link {
+    font-weight: 800;
+    color: ${colors.navyBlue};
+  } 
 
-.form__input--file::-webkit-file-upload-button {
-    visibility: hidden;
+  &__error {
+    &-text {
+      font-weight: 800;
+      color: red;
+    }
   }
-  .form__input--file::before {
-    content: "Select image file";
-    display: inline-block;
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
-    border: 1px solid #999;
-    border-radius: 3px;
-    padding: 5px 8px;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    text-shadow: 1px 1px #fff;
-    font-weight: 700;
-    font-size: 10pt;
-  }
-  .form__input--file:hover::before {
-    border-color: black;
-  }
-  .form__input--file:active::before {
-    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-  }
+}
 `;
 
 export default GlobalStyles;

@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../Button/Button";
+import Layout from "../Layout/Layout";
 
 const App = (): JSX.Element => {
-  return <></>;
+  return <Layout />;
 };
 
 export default App;
