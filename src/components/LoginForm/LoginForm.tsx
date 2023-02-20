@@ -1,10 +1,32 @@
+import { useState, ChangeEvent, FormEvent } from "react";
 import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 
+interface UserCredentials {
+  username: string;
+  password: string;
+}
+
 const LoginForm = () => {
-  const loginFormData = { username: "", password: "" };
-  const handleFormSubmit = () => {};
-  const handleFormChange = () => {};
+  const [userCredentials, setUserCredentials] = useState<UserCredentials>({
+    username: "",
+    password: "",
+  });
+  const handleFormChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setUserCredentials((currentUserCredentials) => ({
+      ...currentUserCredentials,
+      [event.target.id]: event.target.value,
+    }));
+  };
+
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    console.log(userCredentials);
+
+    setUserCredentials({ username: "", password: "" });
+  };
+
   const error = "Invalid username or password";
 
   return (
@@ -20,7 +42,7 @@ const LoginForm = () => {
           className="login-form__input form__input"
           min="5"
           onChange={handleFormChange}
-          value={loginFormData.username}
+          value={userCredentials.username}
           autoComplete="off"
         />
       </div>
@@ -35,7 +57,7 @@ const LoginForm = () => {
           className="login-form__input form__input"
           min="8"
           onChange={handleFormChange}
-          value={loginFormData.password}
+          value={userCredentials.password}
           autoComplete="off"
         />
       </div>
